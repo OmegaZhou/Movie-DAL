@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config/db_config.properties"/>
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${mysql_driver}"/>
+                <property name="url" value="${mysql_url}"/>
+                <property name="username" value="${mysql_user}"/>
+                <property name="password" value="${mysql_password}"/>
+            </dataSource>
+        </environment>
+        <environment id="hive">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${hive_driver}"/>
+                <property name="url" value="${hive_url}"/>
+                <property name="username" value="${hive_user}"/>
+                <property name="password" value="${hive_password}"/>
+            </dataSource>
+        </environment>
+        <environment id="impala">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${impala_driver}"/>
+                <property name="url" value="${impala_url}"/>
+                <property name="username" value="${impala_user}"/>
+                <property name="password" value="${impala_password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="com.tongji.zhou.moviedal.Mapper"/>
+    </mappers>
+</configuration>
