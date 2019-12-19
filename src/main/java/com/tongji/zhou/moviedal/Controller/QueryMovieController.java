@@ -13,8 +13,7 @@ import java.util.List;
 public class QueryMovieController {
     @PostMapping("/queryProducts/{db_type}")
     List<Product> queryProducts(@RequestBody MovieFact movieFact, @PathVariable String db_type){
-        var i= QueryEngine.engines.get(db_type).createMapper(MovieMapper.class).queryProducts(movieFact.getName());
-        return i;
+        return  QueryEngine.engines.get(db_type).createMapper(MovieMapper.class).queryProducts(movieFact.getName());
     }
 
     @PostMapping("/queryActors/{db_type}")
