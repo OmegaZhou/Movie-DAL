@@ -21,7 +21,8 @@ public class MovieResult implements MovieResultImp {
 
     @Override
     public String getMovies() {
-        return movies;
+
+        return null;
     }
 
     public List<String> getMovieList(){
