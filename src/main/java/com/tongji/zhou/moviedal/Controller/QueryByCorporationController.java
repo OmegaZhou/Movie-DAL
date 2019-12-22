@@ -41,4 +41,6 @@ public class QueryByCorporationController {
         return setRole(QueryEngine.engines.get(db_type).createMapper(CorporationMapper.class)
                 .queryByCorporation(tableInformation,range),PersonType.ACTOR,PersonType.DIRECTOR);
     }
+
+
 }

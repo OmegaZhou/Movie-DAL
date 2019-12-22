@@ -2,6 +2,10 @@ package com.tongji.zhou.moviedal.QueryEntity;
 
 import com.tongji.zhou.moviedal.QueryEntity.MovieResultImp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MovieResult implements MovieResultImp {
     private String movies;
     private Integer count;
@@ -18,6 +22,17 @@ public class MovieResult implements MovieResultImp {
     @Override
     public String getMovies() {
         return movies;
+    }
+
+    public List<String> getMovieList(){
+        String[] movie_list= movies.split("\\|");
+        List<String> re=new ArrayList<>();
+        for(String i:movie_list){
+            if(!i.equals("")){
+                re.add(i);
+            }
+        }
+        return re;
     }
 
     public void setCount(Integer count) {

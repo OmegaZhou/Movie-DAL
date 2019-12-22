@@ -10,14 +10,14 @@ import java.util.List;
 public interface ReviewMapper {
     @Select("select distinct movie.name from movie,products_group,product " +
             "where product.asin in " +
-            "(select distinct asin as review_asin from review where ${condition.col}=#{condition.val} and mood=#{mood}) " +
+            "(select asin as review_asin from review where ${condition.col}=#{condition.val} and mood=#{mood}) " +
             "and movie.products_group_id=products_group.product_group_id " +
             "and products_group.product_id=product.product_id")
     List<String> queryMovieByMood(@Param("condition") Condition condition,@Param("mood") String mood);
 
     @Select("select distinct movie.name from movie,products_group,product " +
             "where product.asin in " +
-            "(select distinct asin as review_asin from review where ${condition.col}=#{condition.val} " +
+            "(select asin as review_asin from review where ${condition.col}=#{condition.val} " +
             "and score>=#{range.min_value} and score<=#{range.max_value}) " +
             "and movie.products_group_id=products_group.product_group_id " +
             "and products_group.product_id=product.product_id")
